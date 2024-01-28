@@ -21,12 +21,15 @@ export async function Carousel({ products }: { products: Product[] }) {
           >
             <Link href={`/product/${product.handle}`} className="relative h-full w-full">
               <GridTileImage
-                alt={product?.title}
+                alt={product?.title as string}
                 label={{
-                  title: product.title,
+                  title: product.title as string,
+                  //@ts-ignore
                   amount: product.priceRange.maxVariantPrice.amount,
+                  //@ts-ignore
                   currencyCode: product.priceRange.maxVariantPrice.currencyCode
                 }}
+                //@ts-ignore
                 src={product.featuredImage?.url}
                 fill
                 sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 50vw"
