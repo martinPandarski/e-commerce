@@ -6,7 +6,6 @@ import { usePathname, useSearchParams } from 'next/navigation';
 import { Fragment, useEffect, useState } from 'react';
 
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
-import Search from './search';
 
 export default function MobileMenu({ menu }: { menu: any }) {
   const pathname = usePathname();
@@ -70,9 +69,6 @@ export default function MobileMenu({ menu }: { menu: any }) {
                   <XMarkIcon className="h-6" />
                 </button>
 
-                <div className="mb-4 w-full">
-                  <Search />
-                </div>
                 {menu.length ? (
                   <ul className="flex w-full flex-col">
                     {menu.map((item: any) => (

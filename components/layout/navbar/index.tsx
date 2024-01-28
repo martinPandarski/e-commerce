@@ -5,7 +5,6 @@ import LogoSquare from 'components/logo-square';
 import Link from 'next/link';
 import { Suspense } from 'react';
 import MobileMenu from './mobile-menu';
-import Search from './search';
 import { auth, signIn, signOut } from 'auth';
 const { SITE_NAME } = process.env;
 
@@ -13,14 +12,14 @@ export default async function Navbar() {
   const menu = [] as any;
   const session = await auth();
 
-  const handleAuth = async() => {
-    'use server'
-    if(session){
-       signOut()
-    }else{
-      await signIn()
+  const handleAuth = async () => {
+    'use server';
+    if (session) {
+      signOut();
+    } else {
+      await signIn();
     }
-  }
+  };
 
   return (
     <nav className="relative flex items-center justify-between p-4 lg:px-6">
@@ -50,11 +49,12 @@ export default async function Navbar() {
             </ul>
           ) : null}
         </div>
-        <div className="hidden justify-center md:flex md:w-1/3">
-          <Search />
-        </div>
+
         <div className="flex justify-end md:w-1/3">
-          <button onClick={handleAuth} className="block rounded-full bg-blue-600 p-3 text-center text-sm font-medium text-white opacity-90 hover:opacity-100">
+          <button
+            onClick={handleAuth}
+            className="block rounded-full bg-blue-600 p-3 text-center text-sm font-medium text-white opacity-90 hover:opacity-100"
+          >
             {session ? 'Log out' : 'Sign in'}
           </button>
           <Suspense fallback={<OpenCart />}>
