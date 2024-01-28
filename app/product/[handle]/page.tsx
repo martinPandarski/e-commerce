@@ -8,7 +8,6 @@ import { Gallery } from 'components/product/gallery';
 import { ProductDescription } from 'components/product/product-description';
 import Link from 'next/link';
 import prisma from 'lib/prisma';
-export const runtime = 'edge';
 
 // export async function generateMetadata({
 //   params

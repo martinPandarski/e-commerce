@@ -4,8 +4,6 @@ import Footer from 'components/layout/footer';
 import { Suspense } from 'react';
 import prisma from 'lib/prisma';
 
-export const runtime = 'edge';
-
 export const metadata = {
   description: 'High-performance ecommerce store built with Next.js, Vercel, and Shopify.',
   openGraph: {
@@ -27,9 +25,9 @@ export default async function HomePage() {
   });
   return (
     <>
-      <ThreeItemGrid homepageItems={products}/>
+      <ThreeItemGrid homepageItems={products} />
       <Suspense>
-        <Carousel products={products}/>
+        <Carousel products={products} />
         <Suspense>
           <Footer />
         </Suspense>
